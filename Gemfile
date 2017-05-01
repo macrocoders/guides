@@ -14,6 +14,7 @@ gem "builder"
 gem "middleman-alias"
 gem "underscore-rails"
 gem "html-proofer"
+gem "middleman-toc", :git => "https://github.com/macrocoders/middleman-toc", :branch => "master"
 
 gem "normalize-scss"
 gem "bourbon"

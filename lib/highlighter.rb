@@ -133,11 +133,17 @@ HEADER
     include Helpers
 
     def header(text, level)
-      "<h#{level} class='anchorable-toc' id='toc_#{TOC::TableOfContents.anchorify(text)}'>#{text}</h#{level}>"
+      "<h#{level} class='anchorable-toc' id='toc_#{toc_anchorify(text)}'>#{text}</h#{level}>"
     end
 
     def block_code(code, language)
       _highlight(code, language)
+    end
+
+    private
+
+    def toc_anchorify(text)
+      text.gsub(/&#?\w+;/, '-').gsub(/\W+/, '-').gsub(/^-|-$/, '').downcase
     end
   end
 end

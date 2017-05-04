@@ -1,6 +1,7 @@
 require "redcarpet"
 require "coderay"
 require "nokogiri"
+require "middleman-toc/toc_helpers/headers"
 
 module Highlighter
   class MissingLanguageError < StandardError; end
@@ -131,19 +132,14 @@ HEADER
 
   class HighlightedHTML < Redcarpet::Render::HTML
     include Helpers
+    include ::TocHelpers::Headers
 
     def header(text, level)
-      "<h#{level} class='anchorable-toc' id='toc_#{toc_anchorify(text)}'>#{text}</h#{level}>"
+      toc_header(text, level)
     end
 
     def block_code(code, language)
       _highlight(code, language)
-    end
-
-    private
-
-    def toc_anchorify(text)
-      text.gsub(/&#?\w+;/, '-').gsub(/\W+/, '-').gsub(/^-|-$/, '').downcase
     end
   end
 end

@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/macrocoders/middleman-toc
-  revision: 9f292da7af9d88a118b27e859f46ea3ce5dad8f0
-  branch: master
+  revision: 38f2aeb4e9473d91752b6945a65644acf0749d0e
+  tag: v0.1.0
   specs:
-    middleman-toc (0.0.1)
+    middleman-toc (0.1.0)
       middleman-core (~> 3.0)
 
 GIT
